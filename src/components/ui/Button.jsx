@@ -1,0 +1,13 @@
+import styles from "./Button.module.css";
+
+export const Button = ({ children }) => {
+  return (
+    <>
+      <button
+        className={`min-w-[188px] py-[18px] border rounded-full border-cyan-300 border-opacity-50 leading-tight text-white ${styles["custom-btn-bg"]} hover:border-transparent hover:text-custom-neutral hover:bg-cyan-300 active:bg-opacity-25`}
+      >
+        {children}
+      </button>
+    </>
+  );
+};
