@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       activeChain={activeChain}
     >
       <Component {...pageProps} />
+      <div id="modal-root" />
     </ThirdwebProvider>
   );
 }
