@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { Layout } from "../components";
 import "../styles/globals.css";
 
 const activeChain = "ethereum";
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
       activeChain={activeChain}
     >
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThirdwebProvider>
   );
 }
