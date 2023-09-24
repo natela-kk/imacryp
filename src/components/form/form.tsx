@@ -1,24 +1,25 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { Button } from "../button";
+import { FORM_TEXT } from "./constants";
 
 export const Form = () => {
   const [name, setName] = useState("doliacat.eth");
-  const [description, setDescription] = useState("Lorem");
+  const [description, setDescription] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    window.location.href = "/other-path";
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/dashboard");
   };
 
   return (
     <div className="flex max-w-[640px] min-h-[484px] px-[60px] py-[30px] bg-cyan-200 bg-opacity-10 rounded-[20px] border border-cyan-100 border-opacity-20 backdrop-blur-[100px] flex-col justify-start items-center gap-5">
       <p className="text-center text-cyan-300 text-[27.65px] font-semibold">
-        Congratulations!
+        {FORM_TEXT.title}
       </p>
-      <p className="self-stretch text-center text-base">
-        Your DCLDI NFT is minted
-        <br />
-        Now we need a few more steps to finish your Digital Identity
+      <p className="self-stretch text-center text-base whitespace-pre-line">
+        {FORM_TEXT.description}
       </p>
       <form
         onSubmit={handleSubmit}
@@ -26,7 +27,7 @@ export const Form = () => {
       >
         <div>
           <label htmlFor="input" className="text-zinc-500 text-sm">
-            Name/Pseudonym
+            {FORM_TEXT.name}
           </label>
           <input
             type="text"
@@ -38,7 +39,7 @@ export const Form = () => {
         </div>
         <div>
           <label htmlFor="textarea" className="text-zinc-500 text-sm">
-            Something gorgeous about you
+            {FORM_TEXT.about}
           </label>
           <textarea
             value={description}

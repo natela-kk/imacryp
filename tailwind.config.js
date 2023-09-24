@@ -8,6 +8,9 @@ module.exports = {
         "custom-neutral": "#161619",
       },
     },
+    container: {
+      center: true,
+    },
   },
   plugins: [],
 };
