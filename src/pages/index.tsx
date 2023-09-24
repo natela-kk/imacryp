@@ -5,19 +5,26 @@ import { Button, Card, Modal } from "../components";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setModalIsOpen] = useState(false);
 
   return (
-    <div className="bg-custom-black">
-      <Button onSubmit={(): void => setIsOpen(true)}>
-        Открыть модальное окно
-      </Button>
-      <Modal isOpen={isOpen} onClose={(): void => setIsOpen(false)}>
-        <Card title="Modal Window" description="some random text for modal">
-          Нечто
-        </Card>
-      </Modal>
-    </div>
+    <>
+      <h1 className="self-stretch text-cyan-300 text-base text-[39.81px]">
+        Meet the Nautilus Chain
+      </h1>
+      <p className="self-stretch text-white text-base">
+        Gateway to High-Performance Blockchain Solutions
+      </p>
+      <div className="min-w-[282px] min-h-[180px] inline-flex relative bg-zinc-900 rounded-[20px] p-[15px]"></div>
+      <div className="bg-custom-black">
+        <Button onSubmit={(): void => setModalIsOpen(true)}>
+          Открыть модальное окно
+        </Button>
+        <Modal isOpen={isModalOpen} onClose={(): void => setModalIsOpen(false)}>
+          <Card title="Modal Window" description="some random text for modal" />
+        </Modal>
+      </div>
+    </>
   );
 };
 
