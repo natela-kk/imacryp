@@ -3,10 +3,10 @@ import { Button } from "../button";
 interface ICard {
   title: string;
   titleBold: boolean;
-  children: React.ReactNode;
-  description?: string;
   buttonText?: string;
   onSubmit?: () => void;
+  description?: string;
+  children?: React.ReactNode;
 }
 
 export const Card = ({

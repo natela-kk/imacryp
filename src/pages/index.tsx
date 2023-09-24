@@ -6,7 +6,7 @@ import { Button, Card, Modal, Form } from "../components";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setModalIsOpen] = useState(false);
 
   return (
     <>
@@ -22,14 +22,13 @@ const Home: NextPage = () => {
         <Button onClick={(): void => setIsOpen(true)}>
           Открыть модальное окно
         </Button>
-        <Modal isOpen={isOpen} onClose={(): void => setIsOpen(false)}>
-          <Card
-            title={MAIN_MODAL_TEXT.title}
+        <Button onClick={(): void => setModalIsOpen(true)}>
+          Открыть модальное окно
+        </Button>
+        <Modal isOpen={isModalOpen} onClose={(): void => setModalIsOpen(false)}>
+          <Card title={MAIN_MODAL_TEXT.title}
             description={MAIN_MODAL_TEXT.description}
-            titleBold
-          >
-            {""}
-          </Card>
+            titleBold />
         </Modal>
       </div>
     </>
