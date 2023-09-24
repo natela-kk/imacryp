@@ -40,7 +40,9 @@ export const Modal = ({
 
   return ReactDOM.createPortal(
     <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-80">
-      <div ref={modalRef}>{children}</div>
+      <div ref={modalRef} className="max-w-[640px]">
+        {children}
+      </div>
     </div>,
     document.body
   );
