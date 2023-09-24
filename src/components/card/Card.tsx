@@ -1,10 +1,20 @@
+import { Button } from "../button";
+
 interface ICard {
   title: string;
   description?: string;
   children: React.ReactNode;
+  buttonText?: string;
+  onSubmit?: () => void;
 }
 
-export const Card = ({ title, description, children }: ICard) => {
+export const Card = ({
+  title,
+  description,
+  children,
+  buttonText,
+  onSubmit,
+}: ICard) => {
   return (
     <div
       className="inline-flex flex-col justify-start items-center gap-[15px] p-[30px] 
@@ -16,6 +26,9 @@ export const Card = ({ title, description, children }: ICard) => {
       <div className="min-w-[282px] min-h-[180px] inline-flex relative bg-zinc-900 rounded-[20px] p-[15px]">
         {children}
       </div>
+      {buttonText && onSubmit && (
+        <Button onSubmit={onSubmit}>{buttonText}</Button>
+      )}
     </div>
   );
 };
