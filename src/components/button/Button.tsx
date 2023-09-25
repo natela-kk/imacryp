@@ -1,24 +1,17 @@
-import styles from "./Button.module.css";
-
 interface IButton {
   children: React.ReactNode;
-  onSubmit?: (e: React.FormEvent<HTMLButtonElement>) => void;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onButtonClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  transparent?: Boolean | undefined;
 }
 
-export const Button = ({ children, onSubmit, onClick }: IButton) => {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (onClick) {
-      onClick(e);
-    }
-  };
-
+export const Button = ({ children, onButtonClick, transparent }: IButton) => {
   return (
     <button
-      type={onSubmit ? "submit" : "button"}
-      className={`min-w-[188px] max-h-[57px] p-[18px] border rounded-full border-cyan-300 border-opacity-50 leading-tight text-white ${styles["custom-btn-bg"]}  hover:border-transparent hover:text-custom-neutral hover:bg-cyan-300 active:bg-opacity-25`}
-      onSubmit={onSubmit}
-      onClick={handleClick}
+      type={onButtonClick ? "button" : "submit"}
+      className={`w-[100%] h-[56px] p-[18px] border rounded-full border-cyan-300 border-opacity-50 leading-tight text-white hover:border-transparent hover:text-custom-neutral hover:bg-cyan-300 active:bg-opacity-25 btn ${
+        transparent && "transparent"
+      }`}
+      onClick={onButtonClick}
     >
       {children}
     </button>
