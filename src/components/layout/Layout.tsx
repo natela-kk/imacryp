@@ -6,8 +6,8 @@ interface ILayout {
 
 export const Layout = ({ children }: ILayout) => {
   return (
-    <div className="container mx-auto flex flex-col items-center pt-6">
-      <img src={icon.src} width={56} height={62} className="mb-6" />
+    <div className="container mx-auto flex flex-col items-center text-center pt-6">
+      <img src={icon.src} width={56} height={62} className="mb-6" alt="icon" />
       <main>{children}</main>
     </div>
   );

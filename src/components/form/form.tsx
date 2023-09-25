@@ -14,11 +14,11 @@ export const Form = () => {
   };
 
   return (
-    <div className="flex max-w-[640px] min-h-[484px] px-[60px] py-[30px] bg-cyan-200 bg-opacity-10 rounded-[20px] border border-cyan-100 border-opacity-20 backdrop-blur-[100px] flex-col justify-start items-center gap-5">
-      <p className="text-center text-cyan-300 text-[27.65px] font-semibold">
+    <div className="flex max-w-[640px] min-h-[484px] px-[60px] py-[30px] rounded-[20px] border border-cyan-100 border-opacity-20 flex-col justify-start items-center gap-5 bg-cyan-200 bg-opacity-10  backdrop-blur-[100px] hover:border-opacity-100">
+      <p className="text-center text-cyan-300 text-[27.65px] font-semibold leading-[34px]">
         {FORM_TEXT.title}
       </p>
-      <p className="self-stretch text-center text-base whitespace-pre-line">
+      <p className="self-stretch text-center text-white text-base whitespace-pre-line leading-5">
         {FORM_TEXT.description}
       </p>
       <form
@@ -30,11 +30,11 @@ export const Form = () => {
             {FORM_TEXT.name}
           </label>
           <input
+            id="input"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="flex min-w-[520px] min-h-14 px-4 py-[18px] rounded-lg border border-cyan-300  justify-start items-center gap-2.5 bg-transparent"
-            id="input"
+            className="flex min-w-[520px] min-h-14 px-4 py-[18px] rounded-lg border border-cyan-300 justify-start items-center gap-2.5 bg-transparent leading-5"
           />
         </div>
         <div>
@@ -42,15 +42,13 @@ export const Form = () => {
             {FORM_TEXT.about}
           </label>
           <textarea
+            id="textarea"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="flex min-w-[520px] min-h-[116px] px-4 py-[18px] rounded-lg border border-cyan-300  justify-start items-center gap-2.5 bg-transparent"
-            id="textarea"
+            className="flex min-w-[520px] min-h-[116px] px-4 py-[18px] rounded-lg border border-cyan-300  justify-start items-center gap-2.5 bg-transparent leading-5"
           />
         </div>
-        <Button>
-          <span className="min-w-[520px] inline-block">Finish</span>
-        </Button>
+        <Button>Finish</Button>
       </form>
     </div>
   );

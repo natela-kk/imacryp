@@ -2,44 +2,59 @@ import { Button } from "../button";
 
 interface ICard {
   title: string;
-  titleBold: boolean;
-  buttonText?: string;
-  onSubmit?: () => void;
   description?: string;
+  buttonText?: string;
+  onButtonClick?: () => void;
+  modal?: Boolean;
+  transparent?: Boolean;
   children?: React.ReactNode;
+  className?: string;
 }
 
 export const Card = ({
   title,
-  titleBold,
-  children,
   description,
   buttonText,
-  onSubmit,
+  onButtonClick,
+  modal,
+  transparent,
+  children,
+  className,
 }: ICard) => {
   return (
     <div
-      className="inline-flex flex-col justify-start items-center gap-[15px] p-[30px] 
+      className={`inline-flex flex-col justify-start items-center p-[30px] 
     border rounded-[20px] border-cyan-100 border-opacity-20
-     bg-cyan-200 bg-opacity-10  backdrop-blur-[100px] hover:border-opacity-100"
+     bg-cyan-200 bg-opacity-10  backdrop-blur-[100px] hover:border-opacity-100
+     ${modal ? "px-[60px] gap-[20px] w-[640px]" : "gap-[15px]"} 
+     ${className}`}
     >
       <h1
         className={`self-stretch text-cyan-300 ${
-          titleBold
-            ? "text-center text-[27.65px] font-semibold"
-            : "text-base font-normal"
+          modal
+            ? "text-center text-[27.65px] font-semibold leading-[34px]"
+            : "text-base font-normal leading-5"
         }`}
       >
         {title}
       </h1>
-      <p className="self-stretch text-white text-center text-[16px] whitespace-pre-line">
-        {description}
-      </p>
-      <div className="self-stretch min-w-[282px] min-h-[180px] inline-flex relative bg-zinc-900 rounded-[20px] p-[15px]">
-        {children}
-      </div>
-      {buttonText && onSubmit && (
-        <Button onSubmit={onSubmit}>{buttonText}</Button>
+      {description && (
+        <p className="max-w-[500px] self-stretch text-white text-center text-[16px] whitespace-pre-line leading-5">
+          {description}
+        </p>
+      )}
+      <div
+        className={`relative bg-zinc-900 ${
+          modal
+            ? "w-[520px] h-[375px] rounded-[40px]"
+            : "w-[100%] h-[100%] rounded-[20px]"
+        }`}
+      />
+      {children}
+      {buttonText && (
+        <Button onButtonClick={onButtonClick} transparent={transparent}>
+          {buttonText}
+        </Button>
       )}
     </div>
   );
